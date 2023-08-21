@@ -12,7 +12,7 @@ class Chromosome {
 export class X {
 	black: BlackAllele = Chromosome.generateAllele(BlackAllele);
 	dilute: DiluteAllele = Chromosome.generateAllele(DiluteAllele);
-	orange: RedAllele = Chromosome.generateAllele(OrangeAllele);
+	orange: OrangeAllele = Chromosome.generateAllele(OrangeAllele);
 
 	constructor(x?: Partial<X>) {
 		Object.assign(this, x);
@@ -22,24 +22,25 @@ export class X {
 export class Y {
 	black: BlackAllele = Chromosome.generateAllele(BlackAllele);
 	dilute: DiluteAllele = Chromosome.generateAllele(DiluteAllele);
+	readonly orange = null;
 
 	constructor(y?: Partial<Y>) {
 		Object.assign(this, y);
 	}
 }
 
-enum BlackAllele {
+export enum BlackAllele {
 	B,
 	b,
 	b1
 }
 
-enum DiluteAllele {
+export enum DiluteAllele {
 	D,
 	d
 }
 
-enum OrangeAllele {
+export enum OrangeAllele {
 	O,
 	o
 }
