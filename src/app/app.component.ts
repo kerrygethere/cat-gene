@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CatFactoryService } from './services/cat-factory.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'cat-gene';
+  cat = this.cattery.randomKitty();
+
+  constructor(private cattery: CatFactoryService) {}
 }
