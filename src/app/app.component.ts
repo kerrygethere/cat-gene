@@ -4,6 +4,7 @@ import { Cat } from './models/cat';
 
 const diluteMapping = {
   Black: 'Gray',
+  Calico: 'Dilute Calico',
   Orange: 'Buff',
   Tortishell: 'Dilute Tortishell',
   White: 'White'
