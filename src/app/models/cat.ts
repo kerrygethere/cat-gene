@@ -1,9 +1,10 @@
-import { BlackAllele, DiluteAllele, OrangeAllele, X, Y } from './chromosome';
+import { whiteAlleles, X, Y } from './chromosome';
 
 export class Cat {
 	color: Color | null = null;
 	genes: Array<X | Y>;
 	sex: Sex;
+	spotting: number = 0;
 	isDilute: boolean;
 
 	constructor(genes: Array<X | Y>) {
@@ -17,24 +18,26 @@ export class Cat {
 		}
 
 		// determine color from black, orange, dilute
-		const recessive = DiluteAllele.d;
-		const nameOfRecessive = `${DiluteAllele[recessive]}`;
-		const dilute1 = `${this.genes[0].dilute}`;
-		const dilute2 = `${this.genes[1].dilute}`;
-
-		this.isDilute = dilute1 === nameOfRecessive && dilute2 === nameOfRecessive;
+		this.spotting = whiteAlleles.indexOf(this.genes[0].white) * whiteAlleles.indexOf(this.genes[1].white);
 		
-		if (this.sex === Sex.Female && (
-			(this.genes[0].orange !== this.genes[1].orange)
-		)) {
-			this.color = Color.Tortishell;
+		const dilute1 = this.genes[0].dilute;
+		const dilute2 = this.genes[1].dilute;
+
+		this.isDilute = dilute1 === 'd' && dilute2 === 'd';
+
+		if (this.genes[0].white === 'W' || this.genes[1].white === 'W') {
+			this.color = Color.White;
 		} else {
-			const orange = OrangeAllele.O;
-			const nameOfOrange = `${OrangeAllele[orange]}`;
-			if (`${this.genes[0].orange}` === nameOfOrange) {
-				this.color = Color.Orange;
+			if (this.sex === Sex.Female && (
+				(this.genes[0].orange !== this.genes[1].orange)
+			)) {
+				this.color = Color.Tortishell;
 			} else {
-				this.color = Color.Black;
+				if (`${this.genes[0].orange}` === 'O') {
+					this.color = Color.Orange;
+				} else {
+					this.color = Color.Black;
+				}
 			}
 		}
 	}
@@ -43,7 +46,8 @@ export class Cat {
 enum Color {
 	Black = 'Black',
 	Orange = 'Orange',
-	Tortishell = 'Tortishell'
+	Tortishell = 'Tortishell',
+	White = 'White'
 }
 
 enum Sex {

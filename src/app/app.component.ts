@@ -5,8 +5,9 @@ import { Cat } from './models/cat';
 const diluteMapping = {
   Black: 'Gray',
   Orange: 'Buff',
-  Tortishell: 'Dilute Tortishell'
-}
+  Tortishell: 'Dilute Tortishell',
+  White: 'White'
+};
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,14 @@ const diluteMapping = {
 export class AppComponent implements OnInit {
   cat: Cat = this.cattery.randomKitty();
   displayColor: string = '';
+  spottingMapping = {
+    '=0': 'White',
+    '=1': 'More',
+    '=10': 'Less',
+    '=13': 'Less',
+    '=100': 'Gloves',
+    'other': 'None'
+  };
 
   constructor(private cattery: CatFactoryService) {}
 

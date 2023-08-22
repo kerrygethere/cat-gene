@@ -1,12 +1,17 @@
 main {
 	background: #FAF1E4;
-	border-left: 3px solid #435334;
-	border-right: 3px solid #435334;
+	border-left: 1px solid #435334;
+	border-right: 1px solid #435334;
 	box-shadow: 0 0 15px rgb(158, 179, 132);
-	height: 100%;
+	min-height: 100vh;
 	padding: 2rem;
 	margin: 0 auto;
 	max-width: 50rem;
+}
+
+.cat {
+	display: grid;
+	grid-template-columns: 500px auto;
 }
 
 .orange {
@@ -21,7 +26,17 @@ main {
 	fill: url('#tortishell');
 }
 
+.white {
+	fill: #ffffff;
+}
+
 .dilute {
 	fill: #ffffff;
 	opacity: 50%;
+}
+
+.border {
+	fill: transparent;
+	stroke: #000000;
+	stroke-width: 2px;
 }
