@@ -11,7 +11,15 @@ main {
 
 .cat {
 	display: grid;
-	grid-template-columns: 500px auto;
+	grid-template-columns: 1fr;
+
+	@media (min-width: 50rem) {
+		grid-template-columns: 500px auto;
+	}
+
+	svg {
+		max-width: 100%;
+	}
 }
 
 .orange {
