@@ -38,16 +38,26 @@ export class Cat {
 				if (`${this.genes[0].orange}` === 'O') {
 					this.color = Color.Orange;
 				} else {
-					this.color = Color.Black;
+					if (this.genes[0].black === 'b1' && this.genes[1].black === 'b1') {
+						this.color = Color.Cinnamon;
+					} else if (this.genes[0].black === 'B' || this.genes[1].black === 'B') {
+						this.color = Color.Black;
+					} else {
+						this.color = Color.Brown;
+					}
 				}
 			}
 		}
 	}
 }
 
+export const litterSize = [1, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 7, 7, 8];
+
 enum Color {
 	Black = 'Black',
+	Brown = 'Brown',
 	Calico = 'Calico',
+	Cinnamon = 'Cinnamon',
 	Orange = 'Orange',
 	Tortishell = 'Tortishell',
 	White = 'White'

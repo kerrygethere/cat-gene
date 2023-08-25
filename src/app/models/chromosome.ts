@@ -10,6 +10,7 @@ class Chromosome {
 }
 
 export class X {
+	readonly type: string = 'X';
 	black: string = Chromosome.generateAllele(blackAlleles);
 	dilute: string = Chromosome.generateAllele(diluteAlleles);
 	orange: string = Chromosome.generateAllele(orangeAlleles);
@@ -21,6 +22,7 @@ export class X {
 }
 
 export class Y {
+	readonly type: string = 'Y';
 	black: string = Chromosome.generateAllele(blackAlleles);
 	dilute: string = Chromosome.generateAllele(diluteAlleles);
 	readonly orange = '';
@@ -35,19 +37,3 @@ export const blackAlleles = [ 'B', 'b', 'b1' ];
 export const diluteAlleles = [ 'D', 'd' ];
 export const orangeAlleles = [ 'O', 'o' ];
 export const whiteAlleles = [ 'W', 'Ws', 'Ws', 'Ws', 'Ws', 'Ws', 'Ws', 'Ws', 'Ws', 'Ws', 'wg', 'wg', 'wg', 'w', 'w', 'w', 'w', 'w', 'w' ];
-														// 0		1																										  10								13
-export enum BlackAllele {
-	B,
-	b,
-	b1
-}
-
-export enum DiluteAllele {
-	D,
-	d
-}
-
-export enum OrangeAllele {
-	O,
-	o
-}
