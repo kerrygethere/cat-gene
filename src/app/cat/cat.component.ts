@@ -17,8 +17,8 @@ const diluteMapping = {
   templateUrl: './cat.component.html',
   styleUrls: ['./cat.component.scss']
 })
-export class CatComponent implements OnInit {
-  cat: Cat = this.cattery.randomKitty();
+export class CatComponent {
+  cat: Cat;
   displayColor: string = '';
   spottingMapping = {
     '=0': 'White',
@@ -29,9 +29,13 @@ export class CatComponent implements OnInit {
     'other': 'None'
   };
 
-  constructor(private cattery: CatFactoryService) {}
+  constructor(private cattery: CatFactoryService) {
+    this.catMe();
+  }
 
-  ngOnInit() {
+  catMe() {
+    this.cat = this.cattery.randomKitty();
+
     if (this.cat.color) {
       this.displayColor = this.cat.isDilute ? diluteMapping[this.cat.color] : this.cat.color;
     }
