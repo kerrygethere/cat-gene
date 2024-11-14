@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { CatComponent } from './cat/cat.component';
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
+    MatTableModule,
     NoopAnimationsModule
   ],
   providers: [],

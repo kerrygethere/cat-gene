@@ -1,10 +1,6 @@
 .cat {
-	display: grid;
-	grid-template-columns: 1fr;
-
-	@media (min-width: 50rem) {
-		grid-template-columns: 500px auto;
-	}
+	margin: 0 auto;
+	max-width: 500px;
 
 	svg {
 		max-width: 100%;
